@@ -153,7 +153,7 @@ State.prototype.checkViolations = function () {
     if (this.reliability >= this.synth.reliabilityIndex) {
         reliabilityOk = true;
     }
-    
+
     return {
         progressOk: progressOk,
         cpOk: cpOk,
@@ -513,6 +513,9 @@ function UpdateEffectCounters(s, action, condition, successProbability) {
             else {
                 s.wastedActions += 1;
             }
+        }
+        else if (action.shortName === AllActions.muscleMemory.shortName && s.step != 1) {
+          s.wastedActions += 1;
         }
         else {
             s.effects.countDowns[action.shortName] = action.activeTurns;
@@ -1423,8 +1426,8 @@ function heuristicSequenceBuilder(synth) {
 
     if (tryAction('reflect')) {
         pushAction(subSeq1, 'reflect')
-    } 
-    
+    }
+
     if (tryAction('innerQuiet')) {
         pushAction(subSeq1, 'innerQuiet');
     }
@@ -1562,7 +1565,7 @@ var LevelTable = {
     77: 412,
     78: 415,
     79: 418,
-    80: 420 
+    80: 420
 };
 
 var Ing1RecipeLevelTable = {
@@ -1613,13 +1616,13 @@ var Ing1RecipeLevelTable = {
     350: 293,   // 70_3star
     390: 365,   // 71
     395: 375,   // 72
-    400: 385,   // 73 
-    403: 393,   // 74 
-    406: 396,   // 75 
-    409: 399,   // 76 
-    412: 402,   // 77 
-    415: 405,   // 78 
-    418: 408,   // 79 
+    400: 385,   // 73
+    403: 393,   // 74
+    406: 396,   // 75
+    409: 399,   // 76
+    412: 402,   // 77
+    415: 405,   // 78
+    418: 408,   // 79
     420: 411,   // 80
 };
 
